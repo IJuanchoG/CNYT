@@ -1,9 +1,9 @@
 # CNYT
 
-###  Librería de numeros complejos
+###  LibrerÃ­a de numeros complejos
 
 
-Esta es una librería que tiene por fin calcular diferentes tipos de operaciones de números complejos.
+Esta es una librerÃ­a que tiene por fin calcular diferentes tipos de operaciones de nÃºmeros complejos.
 
 Sus principales funciones son:
 - Suma
@@ -17,18 +17,18 @@ Sus principales funciones son:
 - Componentes polares
 - Componentes Cartesianas
 
-Como ejemplo del código podemos ver esta sección en la que se representa la multiplicación de dos complejos
+Como ejemplo del cÃ³digo podemos ver esta secciÃ³n en la que se representa la multiplicaciÃ³n de dos complejos
 
-´´´ public static Complejo CompMult(Complejo C1, Complejo C2) {
+``` public static Complejo CompMult(Complejo C1, Complejo C2) {
         double pR = C1.getReal()*C2.getReal()-C1.getImg()*C2.getImg(), 
                    pI = C1.getReal()*C2.getImg()+C1.getImg()*C2.getReal();
         return new Complejo(pR,pI);
     }
-´´´
+```
 Como podemos notar retorna objetos con las especificaciones obtenidas.
 
-La verificación de los datos se da a partir de las pruebas realizadas, como podemos ver de ejemplo encontramos:
-´´´
+La verificaciÃ³n de los datos se da a partir de las pruebas realizadas, como podemos ver de ejemplo encontramos:
+```
 /**
      * Test of CompMult method, of class CplxMath.
      */
@@ -40,6 +40,6 @@ La verificación de los datos se da a partir de las pruebas realizadas, como pode
         Complejo result = CplxMath.CompMult(C1, C2);
         assertEquals(expResult, result);
     }
-´´´
+```
 
 Actualmente la calculadora solo se encuentra implementada para funciones simpls y unicamente complejos
