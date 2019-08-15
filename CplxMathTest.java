@@ -21,7 +21,6 @@ public class CplxMathTest {
      */
     @Test
     public void testCompSuma() {
-        System.out.println("CompSuma");
         Complejo C1 = new Complejo(1,5);
         Complejo C2 = new Complejo(5,-3);
         Complejo expResult = new Complejo(6,2);
@@ -34,7 +33,6 @@ public class CplxMathTest {
      */
     @Test
     public void testCompResta() {
-        System.out.println("CompResta");
         Complejo C1 = new Complejo(1,5);
         Complejo C2 = new Complejo(5,-3);
         Complejo expResult = new Complejo(-4,8);
@@ -47,7 +45,6 @@ public class CplxMathTest {
      */
     @Test
     public void testMult() {
-        System.out.println("Mult");
         double r = 3;
         Complejo C1 = new Complejo(1,5);
         Complejo expResult = new Complejo(3,15);
@@ -60,7 +57,6 @@ public class CplxMathTest {
      */
     @Test
     public void testCompMult() {
-        System.out.println("CompMult");
         Complejo C1 = new Complejo(-1.5,5);
         Complejo C2 = new Complejo(9,7);
         Complejo expResult = new Complejo(-48.5,34.5);
@@ -130,11 +126,9 @@ public class CplxMathTest {
      */
     @Test
     public void testCompFase() {
-        System.out.println("CompFase");
         Complejo C = new Complejo(-4.3,2);
         double expResult = 2.7;
         double result = CplxMath.CompFase(C);
-        System.out.println(result);
         assertEquals(expResult, result, 0.05);
     }
     

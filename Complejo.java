@@ -38,7 +38,6 @@ public class Complejo {
     public boolean equals(Object obj) {
         return (this.hashCode() == obj.hashCode());
     }
-
     /**
      *Muestra la información del Hashcode del objeto
      * @return
