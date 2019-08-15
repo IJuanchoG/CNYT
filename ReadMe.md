@@ -2,7 +2,7 @@
 
 ###  Librería de numeros complejos
 
-
+Mi nombre es Juan Carlos García,
 Esta es una librería que tiene por fin calcular diferentes tipos de operaciones de números complejos.
 
 Sus principales funciones son:
