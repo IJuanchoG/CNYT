@@ -30,7 +30,9 @@ public class Complejo {
     public double getImg() {
         return pImg;
     }
-
+    public void printear(){
+        System.out.println("("+getReal()+","+getImg()+"i)");
+    }
     /**
      * Verifica que el Hashcode de ambos objetos sean iguales para confirmar equivalencia
      * @param obj

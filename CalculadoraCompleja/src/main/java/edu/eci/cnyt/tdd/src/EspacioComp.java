@@ -1,7 +1,6 @@
 package edu.eci.cnyt.tdd.src;
 
-
-import edu.eci.cnyt.tdd.src.CplxMath;
+import java.util.Arrays;
 
 
 
@@ -42,17 +41,42 @@ public class EspacioComp {
         return espacio;
     }
 
-    public EspacioComp EspacioSum(EspacioComp C2) {
-        if(C2.getM() != m || C2.getN() != n) return null;
-        Complejo[][] resultado = new Complejo[m][n];
-        for(int i = 0; i< m; i++) for (int j = 0; j < n; j++) resultado[i][j] = CplxMath.CompSuma(espacio[i][j], C2.getEspacio()[i][j]);
-        EspacioComp algo = new EspacioComp(m,n,resultado);
-        algo.printear();
-        return algo;
-
-    }
     
     public void printear() {
-        for (int i = 0; i < m; i++) for(int j = 0; j<n; j++) System.out.println("linea "+(i+1)+" Columna "+(j+1)+" ->  ("+espacio[i][j].getReal()+","+espacio[i][j].getImg()+"i)");
+        for (int i = 0; i < m; i++) for(int j = 0; j<n; j++) 
+            System.out.println("linea "+(i+1)+" Columna "+(j+1)+" ->  ("+espacio[i][j].getReal()+","+espacio[i][j].getImg()+"i)");
     }
+    
+    public static Complejo[][] getUnitaria(int n){        
+        Complejo[][] resultado = new Complejo[n][n];
+        for(int i = 0; i< n; i++) for (int j = 0; j < n; j++) 
+        {
+            if (i == j) resultado[j][i] = new Complejo(1,0);
+            else resultado[j][i] = new Complejo(0,0);
+        }
+        return resultado;
+    }
+    /**
+     * Verifica que el Hashcode de ambos objetos sean iguales para confirmar equivalencia
+     * @param obj
+     * @return
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return (this.hashCode() == obj.hashCode());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;        
+        hash = 29 * hash + this.m;
+        hash = 29 * hash + this.n;
+        hash = 29 * hash + Arrays.deepHashCode(this.espacio);
+        return hash;
+    }
+    /**
+     *Muestra la informacion del Hashcode del objeto
+     * @return
+     */
+    
 }
