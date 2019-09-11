@@ -43,8 +43,11 @@ public class EspacioComp {
 
     
     public void printear() {
-        for (int i = 0; i < m; i++) for(int j = 0; j<n; j++) 
-            System.out.println("linea "+(i+1)+" Columna "+(j+1)+" ->  ("+espacio[i][j].getReal()+","+espacio[i][j].getImg()+"i)");
+        for (int i = 0; i < m; i++){ 
+            for(int j = 0; j<n; j++) System.out.print("("+espacio[i][j].getReal()+","+espacio[i][j].getImg()+"i)");
+            System.out.println();
+            }
+        System.out.println("___________________________________________");
     }
     
     public static Complejo[][] getUnitaria(int n){        
@@ -65,7 +68,12 @@ public class EspacioComp {
     public boolean equals(Object obj) {
         return (this.hashCode() == obj.hashCode());
     }
-
+    
+    
+    /**
+     *Muestra la informacion del Hashcode del objeto
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 7;        
@@ -74,9 +82,5 @@ public class EspacioComp {
         hash = 29 * hash + Arrays.deepHashCode(this.espacio);
         return hash;
     }
-    /**
-     *Muestra la informacion del Hashcode del objeto
-     * @return
-     */
     
 }

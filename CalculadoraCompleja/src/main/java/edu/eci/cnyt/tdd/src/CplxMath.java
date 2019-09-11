@@ -10,7 +10,7 @@ public class CplxMath {
      * @return
      */
     public static Complejo CompSuma(Complejo C1, Complejo C2 ) {
-        return new Complejo(C1.getReal()+C2.getReal(), C1.getImg()+C2.getImg());
+        return new Complejo(Math.round(C1.getReal()+C2.getReal()), Math.round(C1.getImg()+C2.getImg()));
     }
     
     /**
@@ -20,7 +20,7 @@ public class CplxMath {
      * @return
      */
     public static Complejo CompResta(Complejo C1, Complejo C2 ) {
-        return new Complejo(C1.getReal()-C2.getReal(), C1.getImg()-C2.getImg());		
+        return new Complejo(Math.round(C1.getReal()-C2.getReal()), Math.round(C1.getImg()-C2.getImg()));		
     }
     
     /**
@@ -40,8 +40,8 @@ public class CplxMath {
      * @return
      */
     public static Complejo CompMult(Complejo C1, Complejo C2) {
-        double pR = C1.getReal()*C2.getReal()-C1.getImg()*C2.getImg(), 
-                   pI = C1.getReal()*C2.getImg()+C1.getImg()*C2.getReal();
+        double pR = Math.round((C1.getReal()*C2.getReal())-(C1.getImg()*C2.getImg())), 
+                pI = Math.round((C1.getReal()*C2.getImg())+(C1.getImg()*C2.getReal()));
         return new Complejo(pR,pI);
     }
     
@@ -53,7 +53,7 @@ public class CplxMath {
      */
     public static Complejo CompDiv(Complejo C1, Complejo C2) {
         double a = C1.getReal(),b = C1.getImg(),c = C2.getReal(),d = C2.getImg(),
-                   pR = (a*c+b*d)/(c*c+d*d), pI = (b*c-a*d)/(c*c+d*d);
+                   pR = Math.round((a*c+b*d)/(c*c+d*d)), pI = Math.round((b*c-a*d)/(c*c+d*d));
         return new Complejo(pR, pI);
     }
     
@@ -63,7 +63,7 @@ public class CplxMath {
      * @return
      */
     public static double CompMod(Complejo C) {
-        return Math.sqrt((C.getImg()*C.getImg())+(C.getReal()*C.getReal()));
+        return Math.round(Math.sqrt(Math.round((C.getImg()*C.getImg()))+Math.round((C.getReal()*C.getReal()))));
     }
     
     /**
@@ -72,7 +72,8 @@ public class CplxMath {
      * @return
      */
     public static Complejo CompConj(Complejo C){
-        return new Complejo(C.getReal(),-C.getImg());
+        if(C.getImg()==0) return new Complejo(C.getReal(), C.getImg());
+        return new Complejo(C.getReal(),-1*C.getImg());
     }
     
     /**
