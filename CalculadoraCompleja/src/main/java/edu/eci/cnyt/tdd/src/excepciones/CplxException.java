@@ -8,6 +8,8 @@ package edu.eci.cnyt.tdd.src.excepciones;
 
 public class CplxException extends Exception {
     public static final String DIMENSIONES_INVALIDAS = "Las dimensiones para operar son invalidas";
+    public static final String DIVISION_CERO = "Los valores para realizar la division son invalidos";
+    
     public CplxException(String message){
         super(message);
         

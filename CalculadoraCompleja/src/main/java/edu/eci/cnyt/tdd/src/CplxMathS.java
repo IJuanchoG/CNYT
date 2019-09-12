@@ -88,7 +88,6 @@ public class CplxMathS {
        CplxMathS.EspacioAdj(C).printear();
        CplxMathS.EspacioMult(C, CplxMathS.EspacioAdj(C)).printear();
        CplxMathS.EspacioMult(CplxMathS.EspacioAdj(C),C ).printear();
-       //return CplxMathS.EspacioMult(C, CplxMathS.EspacioAdj(C)).equals(new EspacioComp(C.getM(),C.getM(),EspacioComp.getUnitaria(C.getM())));   
        return CplxMathS.EspacioMult(C, CplxMathS.EspacioAdj(C)).equals(CplxMathS.EspacioMult(CplxMathS.EspacioAdj(C),C));   
        
    }
