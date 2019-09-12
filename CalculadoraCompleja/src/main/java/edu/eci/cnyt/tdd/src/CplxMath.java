@@ -1,5 +1,7 @@
 package edu.eci.cnyt.tdd.src;
 
+import edu.eci.cnyt.tdd.src.excepciones.CplxException;
+
 
 public class CplxMath {
 	
@@ -50,10 +52,12 @@ public class CplxMath {
      * @param C1 - Primer complejo a dividir (Dividendo)
      * @param C2 - Segundo complejo a dividir (Divisor)
      * @return
+     * @throws edu.eci.cnyt.tdd.src.excepciones.CplxException
      */
-    public static Complejo CompDiv(Complejo C1, Complejo C2) {
+    public static Complejo CompDiv(Complejo C1, Complejo C2) throws CplxException {
+        if(C1.getReal() == 0 && C2.getImg() == 0) throw new CplxException(CplxException.DIVISION_CERO);
         double a = C1.getReal(),b = C1.getImg(),c = C2.getReal(),d = C2.getImg(),
-                   pR = (a*c+b*d)/(c*c+d*d), pI = (b*c-a*d)/(c*c+d*d);
+                   pR = (a*c+b*d)/(Math.pow(c, 2)+Math.pow(d, 2)), pI = (b*c-a*d)/(Math.pow(c, 2)+Math.pow(d, 2));
         return new Complejo(pR, pI);
     }
     
@@ -63,7 +67,7 @@ public class CplxMath {
      * @return
      */
     public static double CompMod(Complejo C) {
-        return Math.sqrt((C.getImg()*C.getImg()+(C.getReal()*C.getReal())));
+        return Math.round(Math.sqrt((C.getImg()*C.getImg())+(C.getReal()*C.getReal())));
     }
     
     /**
@@ -73,7 +77,7 @@ public class CplxMath {
      */
     public static Complejo CompConj(Complejo C){
         if(C.getImg()==0) return new Complejo(C.getReal(), C.getImg());
-        return new Complejo(C.getReal(),-1*C.getImg());
+        return new Complejo(C.getReal(),-C.getImg());
     }
     
     /**

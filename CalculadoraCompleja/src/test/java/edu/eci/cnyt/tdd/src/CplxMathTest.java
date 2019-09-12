@@ -1,13 +1,15 @@
 package edu.eci.cnyt.tdd.src;
 
+import edu.eci.cnyt.tdd.src.excepciones.CplxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 
 public class CplxMathTest {
     
-    public CplxMathTest() {
-    }
+    
 
     /**
      * Test of CompSuma method, of class CplxMath.
@@ -62,11 +64,15 @@ public class CplxMathTest {
      */
     @Test
     public void testCompDiv() {
-        Complejo C1 = new Complejo(-90,145);
-        Complejo C2 = new Complejo(9.9999998,890);
-        Complejo expResult = new Complejo(0.1617647059058913,0.1029411764345011);
-        Complejo result = CplxMath.CompDiv(C1, C2);
-        assertEquals(expResult, result);
+        try {
+            Complejo C1 = new Complejo(-90,145);
+            Complejo C2 = new Complejo(9.9999998,890);
+            Complejo expResult = new Complejo(0.1617647059058913,0.1029411764345011);
+            Complejo result = CplxMath.CompDiv(C1, C2);
+            assertEquals(expResult, result);
+        } catch (CplxException ex) {
+            fail("Epacoio");
+        }
         
     }
 

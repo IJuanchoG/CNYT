@@ -29,36 +29,40 @@ public class EspacioComp {
         n = sizey;
         espacio =  datos;
     }
-
+    
+    /**
+     * Retorna el valor del tamaño M
+     * @return 
+     */
     public int getM() {
         return m;
     }
-
+    /**
+     * Retorna el valor lado N
+     * @return 
+     */
     public int getN() {
         return n;
     }
+    /**
+     * retorna los valores de espacios complejos
+     * @return 
+     */
     public Complejo[][] getEspacio(){
         return espacio;
     }
 
-    
+    /**
+     * Muestra en pantalla los valores de la matriz
+     */
     public void printear() {
         for (int i = 0; i < m; i++){ 
-            for(int j = 0; j<n; j++) System.out.print("("+espacio[i][j].getReal()+","+espacio[i][j].getImg()+"i)");
+            for(int j = 0; j<n; j++) System.out.print("( "+Math.round(espacio[i][j].getReal())+" , "+Math.round(espacio[i][j].getImg())+" i) ");
             System.out.println();
             }
-        System.out.println("___________________________________________");
     }
     
-    public static Complejo[][] getUnitaria(int n){        
-        Complejo[][] resultado = new Complejo[n][n];
-        for(int i = 0; i< n; i++) for (int j = 0; j < n; j++) 
-        {
-            if (i == j) resultado[j][i] = new Complejo(1,0);
-            else resultado[j][i] = new Complejo(0,0);
-        }
-        return resultado;
-    }
+    
     /**
      * Verifica que el Hashcode de ambos objetos sean iguales para confirmar equivalencia
      * @param obj
