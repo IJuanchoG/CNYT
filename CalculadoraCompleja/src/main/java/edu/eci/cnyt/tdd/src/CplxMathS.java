@@ -19,6 +19,31 @@ public class CplxMathS {
         return algo;
     }
     
+    /**
+     * Resta dos matrices de numeros complejos
+     *
+     * @param A Primera matriz de numeros complejos
+     * @param B Segunda matriz de numeros complejos
+     * @return Una matriz de numeros complejos resultante de la resta de las matrices a y b
+     * @throws edu.eci.cnyt.tdd.src.excepciones.CplxException
+     */
+    public static EspacioComp EspacioResta(EspacioComp A, EspacioComp B) throws CplxException {
+        int m = A.getM(), n =  B.getN();
+        if(B.getM() != m || B.getN() != n) throw new CplxException(CplxException.DIMENSIONES_INVALIDAS);
+        Complejo[][] resta = new Complejo[m][n];
+        for(int i = 0; i < A.getM(); i++) {
+            for(int j = 0; j < B.getN(); j++) {
+            	resta[i][j] = CplxMath.CompResta(A.getEspacio()[i][j], B.getEspacio()[i][j]);
+            }
+        }
+        return new EspacioComp(m,n,resta);
+    }
+    
+    /**
+     * Halla la inversa de una matriz
+     * @param C
+     * @return 
+     */
     public static EspacioComp EspacioInv(EspacioComp C){
         int M = C.getM(),N = C.getN();
         Complejo[][] resultado = new Complejo[M][N];
@@ -153,25 +178,7 @@ public class CplxMathS {
        if(C.getM() != C.getN()) throw new CplxException(CplxException.DIMENSIONES_INVALIDAS);
        return C.equals(CplxMathS.EspacioAdj(C));   
    }
-   /**
-     * Resta dos matrices de numeros complejos
-     *
-     * @param A Primera matriz de numeros complejos
-     * @param B Segunda matriz de numeros complejos
-     * @return Una matriz de numeros complejos resultante de la resta de las matrices a y b
-     * @throws edu.eci.cnyt.tdd.src.excepciones.CplxException
-     */
-    public static EspacioComp restaDeMatrices(EspacioComp A, EspacioComp B) throws CplxException {
-        int m = A.getM(), n =  B.getN();
-        if(B.getM() != m || B.getN() != n) throw new CplxException(CplxException.DIMENSIONES_INVALIDAS);
-        Complejo[][] resta = new Complejo[m][n];
-        for(int i = 0; i < A.getM(); i++) {
-            for(int j = 0; j < B.getN(); j++) {
-            	resta[i][j] = CplxMath.CompResta(A.getEspacio()[i][j], B.getEspacio()[i][j]);
-            }
-        }
-        return new EspacioComp(m,n,resta);
-    }
+   
    /**
      * Calcula y retorna la distancia entre dos vectores
      * @param A Matriz 1
@@ -180,7 +187,7 @@ public class CplxMathS {
      */
     public static double distancia(EspacioComp A, EspacioComp B) throws CplxException {
         double distancia;
-        distancia = NormaMatrices(restaDeMatrices(A, B));
+        distancia = NormaMatrices(EspacioResta(A, B));
         return distancia;
     }
     

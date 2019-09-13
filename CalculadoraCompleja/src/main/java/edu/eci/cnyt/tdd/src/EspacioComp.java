@@ -58,6 +58,7 @@ public class EspacioComp {
     public void printear() {
         for (int i = 0; i < m; i++){ 
             for(int j = 0; j<n; j++) System.out.print("( "+Math.round(espacio[i][j].getReal())+" , "+Math.round(espacio[i][j].getImg())+" i) ");
+            
             System.out.println();
             }
     }

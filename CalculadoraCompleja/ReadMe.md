@@ -1,10 +1,13 @@
-# CNYT
+# Librería de Números Complejos 
 
-###  Librería de numeros complejos
+Mi nombre es Juan Carlos García y quiero presentarles esta librería que tiene por fin calcular 
+diferentes tipos de operaciones de números complejos.
+esta libreria está implementada en **JAVA** para la materia de **CNYT (Ciencias Naturales y Tecnología)**
 
-Mi nombre es Juan Carlos García,
-Esta es una librería que tiene por fin calcular diferentes tipos de operaciones de números complejos.
+## Funciones:
+La librería cuenta con varias funciones y versiones de la misma, 
 
+#### Primer versión (Numeros complejos)
 Sus principales funciones son:
 - Suma
 - Resta
@@ -42,4 +45,79 @@ La verificación de los datos se da a partir de las pruebas realizadas, como pod
     }
 ```
 
-Actualmente la calculadora solo se encuentra implementada para funciones simpls y unicamente complejos
+### Segunda Versión (Espacios de numeros complejos)
+-  Suma de vectores complejos.
+-   Inverso aditivo de vector complejo.
+-   Multiplicación de escalar por vector complejo.
+-   Suma de matrices complejas.
+-   Inverso aditivo de matriz compleja.
+-   Multiplicación de escalar por matriz compleja.
+-   Transpuesta de matriz compleja.
+-   Conjugada de matriz compleja.
+-   Adjunta (daga) de matriz compleja .
+-   Producto de matrices complejas.
+-   Acción de matriz compleja sobre vector complejo.
+-   Producto interno de vectores complejos.
+-   Norma de vector complejo.
+-   Distancia entre dos vectores complejos.
+-   ¿Es la matriz compleja una matriz unitaria?.
+-   ¿Es la matriz compleja una matriz hermitiana?.
+-   Producto tensorial de matrices complejas.
+
+
+Como ejemplo podemos encontrar este fragmento de código que realiza la suma de dos matrices complejas
+```
+/**
+     * Halla la inversa de una matriz
+     * @param C
+     * @return 
+     */
+    public static EspacioComp EspacioInv(EspacioComp C){
+        int M = C.getM(),N = C.getN();
+        Complejo[][] resultado = new Complejo[M][N];
+        for(int i = 0; i< M; i++) for (int j = 0; j < N; j++) resultado[i][j] = CplxMath.Mult(-1, C.getEspacio()[i][j]);
+        EspacioComp algo = new EspacioComp(M,N,resultado);
+    return algo;
+    }
+```
+
+## Pasos de descarga y uso:
+
+Clona el repositorio con la siguiente dirección en el terminal (cmd) usando el comando:
+``` git clone https://github.com/IJuanKhoxD/CNYT.git```
+
+Abrir el programa descargado con cualquier tipo de IDE Java, es recomendado usar **NetBeans**,
+para ejecutar o implementarla debe usar las calculadoras **CplxMath** y **CplxMathS**, siendo cada una dirigida a
+numeros complejos y matrices complejas respectivamente.
+
+el tipo de entrada para cada una es:
+
+### CplxMath
+```
+public static Complejo CompSuma(Complejo C1, Complejo C2 )....
+```
+
+donde un complejo tiene este tipo de constructor
+
+```
+public Complejo(double r, double j) ....
+```
+
+### CplxMathS
+
+```
+public static EspacioComp EspacioSum(EspacioComp C1, EspacioComp C2) throws CplxException....
+```
+
+donde un matriz compleja tiene este tipo de constructor
+
+```
+public EspacioComp(int sizex, int sizey, double[][] datos) ....
+```
+cabe destacar que este no es su único tipo de constructor
+
+
+para verificar el correcto funcionamiento de las librerias es recomendable ejecutar las pruebas presentes en estos,
+se pueden ejecutar desde el IDE de preferencia o desde comandos MVN tales como 
+>>```mvn surefire:test```
+

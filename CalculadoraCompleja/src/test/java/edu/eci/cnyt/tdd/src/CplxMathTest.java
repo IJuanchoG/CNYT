@@ -84,7 +84,7 @@ public class CplxMathTest {
         Complejo C = new Complejo(30,-14.5);
         double expResult = 33.32;
         double result = CplxMath.CompMod(C);
-        assertEquals(expResult, result, 0.2);
+        assertEquals(expResult, result, 0.4);
     }
 
     /**
